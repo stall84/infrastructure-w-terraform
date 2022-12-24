@@ -1,6 +1,7 @@
 terraform {
   backend "s3" {
-    key = "tutorial-backend-1"
+    bucket = var.BACKEND_BUCKET
+    key    = "tutorial-backend-1"
   }
 }
 

@@ -4,6 +4,8 @@ variable "AWS_ACCESS_KEY" {}
 
 variable "AWS_SECRET_KEY" {}
 
+variable "BACKEND_BUCKET" {}
+
 variable "AWS_REGION" {
   default = "us-east-1"
 }
