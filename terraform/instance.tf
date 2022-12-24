@@ -3,4 +3,7 @@ resource "aws_instance" "example-instance" {
   # Below specifies 1st argument: the map name (AMIS), 2nd argument: the key to retrieve the value for
   ami           = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.example-instance.private_ip} >> private_ips.txt"
+  }
 }
