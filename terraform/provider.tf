@@ -1,6 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = var.BACKEND_BUCKET
+    # You must use the explicit value for backend configuration. You can't use variables here
+    bucket = "terraform-backend-65072-122022"
     key    = "tutorial-backend-1"
   }
 }
