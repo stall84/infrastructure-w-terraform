@@ -18,4 +18,12 @@ variable "AMIS" {
     eu-west-1 = "ami-0f29c8402f8cce65c"
   }
 }
-# testing substitutions
+# ENV Variables can be loaded using the 'external' data source (shown below) 
+# https://support.hashicorp.com/hc/en-us/articles/4547786359571-Reading-and-using-environment-variables-in-Terraform-runs
+# It's also possible though to read env vars off the runtim that are prefixed 
+# with 'TF_VAR...' ex 'TF_VAR_MYID=aJUladi(0
+# they still have to be declared like any other variable/substitution in terraform
+variable "TV_VAR_EU_WEST_1" {
+  # If our desired EU_WEST_1 doesn't exist in our environment vars.. then default to eu-west-2 as a next-best region
+  default = "eu-west-2"
+}
