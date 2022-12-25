@@ -25,5 +25,5 @@ variable "AMIS" {
 # they still have to be declared like any other variable/substitution in terraform
 variable "TV_VAR_EU_WEST_1" {
   # If our desired EU_WEST_1 doesn't exist in our environment vars.. then default to eu-west-2 as a next-best region
-  default = eu-west-2
+  default = "eu-west-2"
 }

@@ -2,6 +2,7 @@
 ## We're doing this to utilize templating/templatefile in the main EC2 machine (instance.tf). 
 
 provider "aws" {
+  alias      = "eu-west-1"
   access_key = var.AWS_ACCESS_KEY
   secret_key = var.AWS_SECRET_KEY
   region     = var.TV_VAR_EU_WEST_1
@@ -12,5 +13,8 @@ provider "aws" {
 resource "aws_instance" "mock_db_instance" {
   ami           = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.nano"
-  tags          = ["cool", "db_instance", "bill_me", "nano", "t2"]
+  tags = {
+    name       = "cost"
+    cost_value = "100"
+  }
 }
