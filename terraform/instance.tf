@@ -18,10 +18,14 @@ resource "aws_instance" "main-instance" {
     my_ip = aws_instance.mock_db_instance.private_ip
     # 'my_ip' will be called in the script in init.tpl and then written to this EC2 machine's file system immediately after it's created.
   })
-  key_name = aws_key_pair.ec2_t2nano_keypair1.key_name
+  # Commenting out our initial attempt(s) at our custom locally created SSH key.. 
+  # key_name = aws_key_pair.rsa_keypair_1.key_name
+  # Instead trying the ssh key pair that we created in the AWS console in the browser and referencing it here in key_name
+  key_name = "ec2_t2nano_keypair1"
 }
 
-resource "aws_key_pair" "ec2_t2nano_keypair1" {
-  # This is our default 'id_rsa' public key, converted to pem format
-  public_key = data.local_file.ec2_key_pem.content
-}
+# resource "aws_key_pair" "rsa_keypair_1" {
+#   # This is our default 'id_rsa' public key, converted to pem format
+#   key_name   = "id_rsa"
+#   public_key = data.local_file.ec2_key_pem.content
+# }

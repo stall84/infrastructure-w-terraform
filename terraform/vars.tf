@@ -28,6 +28,6 @@ variable "TV_VAR_EU_WEST_1" {
   default = "eu-west-2"
 }
 
-data "local_file" "ec2_key_pem" {
-  filename = "/Users/mstallings/.ssh/id_rsa.pem"
-}
+# data "local_file" "ec2_key_pem" {
+#   filename = "/Users/mstallings/.ssh/id_rsa.pub"
+# }
