@@ -3,6 +3,8 @@ resource "aws_instance" "main-instance" {
   # Below specifies 1st argument: the map name (AMIS), 2nd argument: the key to retrieve the value for
   ami           = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.nano"
+  # security_groups = [aws_security_group.ssh_allow_atl.id]
+  vpc_security_group_ids = [aws_security_group.ssh_allow_atl.id]
   # local-exec provisioner will run an local executable on the machine that's running terraform (not on the resource itself.. for that use remote-exec)
   # see https://developer.hashicorp.com/terraform/language/v1.2.x/resources/provisioners/local-exec
   provisioner "local-exec" {
